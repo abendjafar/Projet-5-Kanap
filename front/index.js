@@ -1,4 +1,5 @@
  
+ 
 //Récupération du tableau de produits disponibles
 Products();
 
@@ -50,4 +51,5 @@ async function cartProduct() {
     });
      
 }
+ 
  

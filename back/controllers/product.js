@@ -3,8 +3,8 @@ const Product = require('../models/Product');
 
 exports.getAllProducts = (req, res, next) => {
   Product.find().then(
-    (products) => {
-      const mappedProducts = products.map((product) => {
+    (Products) => {
+      const mappedProducts = Products.map((product) => {
         product.imageUrl = req.protocol + '://' + req.get('host') + '/images/' + product.imageUrl;
         return product;
       });
@@ -43,7 +43,7 @@ exports.getOneProduct = (req, res, next) => {
  *   city: string,
  *   email: string
  * }
- * products: [string] <-- array of product _id
+ * Products: [string] <-- array of product _id
  *
  */
 exports.orderProducts = (req, res, next) => {
@@ -53,11 +53,11 @@ exports.orderProducts = (req, res, next) => {
       !req.body.contact.address ||
       !req.body.contact.city ||
       !req.body.contact.email ||
-      !req.body.products) {
+      !req.body.Products) {
     return res.status(400).send(new Error('Bad request!'));
   }
   let queries = [];
-  for (let productId of req.body.products) {
+  for (let productId of req.body.Products) {
     const queryPromise = new Promise((resolve, reject) => {
       Product.findById(productId).then(
         (product) => {
@@ -76,11 +76,11 @@ exports.orderProducts = (req, res, next) => {
     queries.push(queryPromise);
   }
   Promise.all(queries).then(
-    (products) => {
+    (Products) => {
       const orderId = uuid();
       return res.status(201).json({
         contact: req.body.contact,
-        products: products,
+        Products: Products,
         orderId: orderId
       })
     }

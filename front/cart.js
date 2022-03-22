@@ -1,3 +1,5 @@
+ 
+   
 let productLocalStorage = JSON.parse(localStorage.getItem("cart"));
 
 if (!productLocalStorage) {
@@ -310,3 +312,4 @@ function postForm() {
   }); // fin eventListener postForm
   } // fin envoi du formulaire postForm
   postForm();
+ 
