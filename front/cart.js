@@ -49,6 +49,7 @@ if (!productLocalStorage) {
         productTitle.appendChild(productColor);
         productColor.innerHTML = productLocalStorage[i].colorKanap;
         productColor.style.fontSize = "20px";
+        
 
         // Insertion du prix
         let productPrice = document.createElement("p");
