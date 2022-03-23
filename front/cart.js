@@ -57,12 +57,12 @@ if (!productLocalStorage) {
         let productPrice = document.createElement("p");
         productItemContentTitlePrice.appendChild(productPrice);
         productPrice.innerHTML = productLocalStorage[i].priceKanap + " €";
-
+ 
         // Insertion de l'élément "div"
         let productItemContentSettings = document.createElement("div");
         productItemContent.appendChild(productItemContentSettings);
         productItemContentSettings.className = "cart__item__content__settings";
-
+ 
         // Insertion de l'élément "div"
         let productItemContentSettingsQuantity = document.createElement("div");
         productItemContentSettings.appendChild(productItemContentSettingsQuantity);
@@ -72,7 +72,7 @@ if (!productLocalStorage) {
         let productQty = document.createElement("p");
         productItemContentSettingsQuantity.appendChild(productQty);
         productQty.innerHTML = "Qté : ";
-
+        
         // Insertion de la quantité
         let productQuantity = document.createElement("input");
         productItemContentSettingsQuantity.appendChild(productQuantity);
@@ -82,7 +82,7 @@ if (!productLocalStorage) {
         productQuantity.setAttribute("min", "1");
         productQuantity.setAttribute("max", "100");
         productQuantity.setAttribute("name", "itemQuantity");
-
+        
         // Insertion de l'élément "div"
         let productItemContentSettingsDelete = document.createElement("div");
         productItemContentSettings.appendChild(productItemContentSettingsDelete);
