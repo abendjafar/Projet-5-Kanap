@@ -1,23 +1,19 @@
-  
- 
+
 //Récupération du tableau de produits disponibles
-Products();
+getProducts();
 
 
 //Création des articles via la liste récupérée précédemment
-cartProduct();
+creationProducts();
 
-async function Products() {
+async function getProducts() {
     let products = await fetch('http://localhost:3000/api/products');
-     
-    return products.json(); 
-   
+    console.log("Les produits ont été récupérés !")
+    return products.json();
 }
-  
- 
-// Creation des cartes Produit
-async function cartProduct() {
-    let result = await Products()
+
+async function creationProducts() {
+    let result = await getProducts()
     .then( (product) => {
         for (let i=0; i < product.length; i++) {		
 
@@ -49,8 +45,5 @@ async function cartProduct() {
             productDescription.innerHTML = product[i].description;
         }
     });
-     
+    console.log("Les produits ont été crées !");
 }
- 
- 
- 

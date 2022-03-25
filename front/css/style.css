@@ -149,6 +149,14 @@ main {
 	width: 100%;
 	border-radius: 10px;
 }
+
+.items  img {
+	width: 160px;
+	height: 160px;
+	object-fit: cover;
+	border-radius: 10px;
+}
+
 .items article img {
 	width: 160px;
 	height: 160px;
